@@ -18,5 +18,33 @@
             <Button fx:id="timerButton" mnemonicParsing="false" onAction="#onTimerButtonClick" prefHeight="51.0" prefWidth="199.0" text="Start" />
          </children>
       </HBox>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="114.0" prefHeight="100.0" prefWidth="472.0">
+         <children>
+            <Label fx:id="timerResult" prefHeight="54.0" prefWidth="212.0" text="Time spent (s):">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="timerResultS" prefHeight="54.0" prefWidth="212.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="214.0" prefHeight="100.0" prefWidth="472.0">
+         <children>
+            <Label prefHeight="54.0" prefWidth="212.0" text="Time spent (ms):">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="timerResultMS" prefHeight="54.0" prefWidth="212.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

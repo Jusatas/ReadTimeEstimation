@@ -11,14 +11,30 @@ public class CalculatorController {
 
     @FXML Button timerButton;
 
+    @FXML Label timerResultMS;
+    @FXML Label timerResultS;
+
     private boolean timerRunning = false;
+
+    private TimerManager timerManager = TimerManager.getInstance();
+
 
     @FXML
     void onTimerButtonClick(ActionEvent event) {
         if (timerRunning) {
-            // stop timer
+            timerManager.stopTimer();
+            timerRunning = false;
+            timerButton.setText("Start");
+
+            timerResultMS.setText(String.valueOf(timerManager.getElapsedTimeMS()));
+            timerResultS.setText(String.valueOf(timerManager.getElapsedTimeMS() / 1000));
         } else {
-            // start timer
+            timerManager.startTimer();
+            timerRunning = true;
+            timerButton.setText("Stop");
+
+            timerResultMS.setText("");
+            timerResultS.setText("");
         }
     }
 }

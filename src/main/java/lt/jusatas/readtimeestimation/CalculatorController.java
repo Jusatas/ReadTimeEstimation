@@ -1,14 +1,24 @@
 package lt.jusatas.readtimeestimation;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class CalculatorController {
-    @FXML
-    private Label welcomeText;
+
+    @FXML Label timerLabel;
+
+    @FXML Button timerButton;
+
+    private boolean timerRunning = false;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    void onTimerButtonClick(ActionEvent event) {
+        if (timerRunning) {
+            // stop timer
+        } else {
+            // start timer
+        }
     }
 }

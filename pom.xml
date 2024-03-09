@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>lt.jusaats.readtimeestimation/lt.jusaats.readtimeestimation.HelloApplication
+                            <mainClass>lt.jusaats.readtimeestimation/lt.jusatas.readtimeestimation.ReadingTimeCalculator
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

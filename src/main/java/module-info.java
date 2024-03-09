@@ -3,6 +3,6 @@ module lt.jusaats.readtimeestimation {
     requires javafx.fxml;
 
 
-    opens lt.jusaats.readtimeestimation to javafx.fxml;
-    exports lt.jusaats.readtimeestimation;
+    opens lt.jusatas.readtimeestimation to javafx.fxml;
+    exports lt.jusatas.readtimeestimation;
 }

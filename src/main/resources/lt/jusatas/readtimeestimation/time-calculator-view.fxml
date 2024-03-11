@@ -15,7 +15,10 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="timerButton" mnemonicParsing="false" onAction="#onTimerButtonClick" prefHeight="51.0" prefWidth="199.0" text="Start" />
+            <Button fx:id="timerButton" mnemonicParsing="false" onAction="#onTimerButtonClick" prefHeight="51.0" prefWidth="199.0" text="Start">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="26.0" />
+               </font></Button>
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="14.0" layoutY="114.0" prefHeight="100.0" prefWidth="472.0">

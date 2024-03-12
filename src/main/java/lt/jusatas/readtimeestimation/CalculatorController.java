@@ -4,19 +4,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 public class CalculatorController {
 
-    @FXML Label timerLabel;
+    @FXML TextArea paragraphTextArea;
 
+    @FXML Label timerLabel;
     @FXML Button timerButton;
 
-    @FXML Label timerResultMS;
     @FXML Label timerResultS;
 
+    @FXML Label wordsRead;
+    @FXML Label wordsPerMinute;
+
+
+
     private boolean timerRunning = false;
+    private String paragraphString;
 
     private TimerManager timerManager = TimerManager.getInstance();
+    private ParagraphManager paragraphManager = ParagraphManager.getInstance("paragraphs.txt");
 
 
     @FXML
@@ -26,14 +34,18 @@ public class CalculatorController {
             timerRunning = false;
             timerButton.setText("Start");
 
-            timerResultMS.setText(String.valueOf(timerManager.getElapsedTimeMS()));
-            timerResultS.setText(String.valueOf(timerManager.getElapsedTimeMS() / 1000));
+            int wordCount = paragraphManager.countWords(paragraphString);
+            long timeS = timerManager.getElapsedTimeMS() / 1000;
+            timerResultS.setText(String.valueOf(timeS));
+            wordsRead.setText(String.valueOf(wordCount));
+            wordsPerMinute.setText(String.valueOf((wordCount / timeS) * 60.0));
         } else {
             timerManager.startTimer();
             timerRunning = true;
-            timerButton.setText("Stop");
+            paragraphString = paragraphManager.getRandomParagraph();
+            paragraphTextArea.setText(paragraphString);
 
-            timerResultMS.setText("");
+            timerButton.setText("Stop");
             timerResultS.setText("");
         }
     }

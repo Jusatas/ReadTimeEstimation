@@ -1,8 +1,9 @@
 package lt.jusatas.readtimeestimation;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,17 +24,20 @@ public class ParagraphManager {
     }
 
     private void loadParagraphs(String fileName) {
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        try (InputStream inputStream = getClass().getResourceAsStream(fileName);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             StringBuilder paragraph = new StringBuilder();
-            while ((line = reader.readLine()) != null) {      // if the line is NOT empty
-                if (!line.trim().isEmpty()) {                       // if the line is NOT empty after trimming whitespace
-                    paragraph.append(line).append("\n");                 // add line and newline
-                } else {                                            // if the line IS empty (end of paragraph)
-                    paragraphs.add(paragraph.toString());                // add the whole paragraph
-                    paragraph.setLength(0);                              // reset
+            while ((line = reader.readLine()) != null) {
+                if (!line.trim().isEmpty()) {
+                    paragraph.append(line).append("\n");
+                } else {
+                    paragraphs.add(paragraph.toString());
+                    paragraph.setLength(0);
                 }
+            }
+            if (paragraph.length() > 0) {
+                paragraphs.add(paragraph.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,7 +50,7 @@ public class ParagraphManager {
     }
 
     public int countWords(String text) {
-        String[] words = text.split("\\s+"); // regex: one or more whitespace characters
+        String[] words = text.split("\\s+");
         return words.length;
     }
 }

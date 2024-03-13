@@ -23,8 +23,9 @@ public class CalculatorController {
     private boolean timerRunning = false;
     private String paragraphString;
 
-    private TimerManager timerManager = TimerManager.getInstance();
-    private ParagraphManager paragraphManager = ParagraphManager.getInstance("paragraphs.txt");
+    TimerManager timerManager = ManagerFactory.createTimerManager();
+    ParagraphManager paragraphManager = ManagerFactory.createParagraphManger("paragraphs.txt");
+
 
 
     @FXML

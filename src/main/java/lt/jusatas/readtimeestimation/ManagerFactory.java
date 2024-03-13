@@ -4,7 +4,7 @@ public class ManagerFactory {
     public static TimerManager createTimerManager() {
         return TimerManager.getInstance();
     }
-    public static ParagraphManager createParagraphMangaer(String fileName) {
+    public static ParagraphManager createParagraphManger(String fileName) {
         return ParagraphManager.getInstance(fileName);
     }
 }

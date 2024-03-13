@@ -12,7 +12,7 @@ public class ReadingTimeCalculator extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ReadingTimeCalculator.class.getResource("time-calculator-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 640);
-        stage.setTitle("Hello!");
+        stage.setTitle("Reading time calculator");
         stage.setScene(scene);
         stage.show();
     }

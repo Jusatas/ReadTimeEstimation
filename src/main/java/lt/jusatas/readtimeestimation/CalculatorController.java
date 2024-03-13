@@ -36,9 +36,12 @@ public class CalculatorController {
 
             int wordCount = paragraphManager.countWords(paragraphString);
             long timeS = timerManager.getElapsedTimeMS() / 1000;
+            if (timeS != 0) {
+                int wpm = (int)(wordCount / timeS * 60);
+                wordsPerMinute.setText(String.valueOf(wpm));
+            }
             timerResultS.setText(String.valueOf(timeS));
             wordsRead.setText(String.valueOf(wordCount));
-            wordsPerMinute.setText(String.valueOf((wordCount / timeS) * 60.0));
         } else {
             timerManager.startTimer();
             timerRunning = true;

@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lt.jusatas.readtimeestimation.ResultViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lt.jusatas.readtimeestimation.ResultViewController">
+   <children>
+      <HBox layoutX="25.0" layoutY="25.0" prefHeight="350.0" prefWidth="550.0">
+         <children>
+            <ListView prefHeight="350.0" prefWidth="332.0" />
+            <VBox prefHeight="350.0" prefWidth="220.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="353.0" prefWidth="203.0" text="Average reading speeds by age:&#10;1st Grade: 53–111 wpm&#10;2nd Grade: 89–149 wpm&#10;3rd Grade: 107–162 wpm&#10;4th Grade: 123–180 wpm&#10;5th Grade: 139–194 wpm&#10;6th-8th Grade: 150–204 wpm&#10;High School: 200–300 wpm&#10;College: 300–350 wpm&#10;Adults: Non-fiction: 250 wpm" />
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="472.0">
+                     <children>
+                        <Label fx:id="timerResult" prefHeight="30.0" prefWidth="270.0" text="Time spent (s):">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timerResultS" prefHeight="54.0" prefWidth="212.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="472.0">
+                     <children>
+                        <Label fx:id="timerResult1" prefHeight="30.0" prefWidth="270.0" text="Words read:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timerResultS1" prefHeight="54.0" prefWidth="212.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="472.0">
+                     <children>
+                        <Label fx:id="timerResult2" prefHeight="30.0" prefWidth="270.0" text="Words per minute:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timerResultS2" prefHeight="54.0" prefWidth="212.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets left="20.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

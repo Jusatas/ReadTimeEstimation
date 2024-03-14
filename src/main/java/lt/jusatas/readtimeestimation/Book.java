@@ -10,9 +10,29 @@ public class Book {
         this.wordCount = wordCount;
         this.pageCount = pageCount;
     }
+    public Book(String name, int pageCount) {
+        this.name = name;
+        this.pageCount = pageCount;
+        this.wordCount = calculateWordCount(pageCount);
+    }
+    public Book(String name, int wordCount, boolean isWordCount) {
+        this.name = name;
+        this.pageCount = calculatePageCount(wordCount);
+        this.wordCount = wordCount;
+    }
 
-    private int calculateWordcount(int pageCount) {
+    private int calculateWordCount(int pageCount) {
         return pageCount * 450;
+    }
+
+    private int calculatePageCount(int wordCount) {
+        return (wordCount / 450) + 1;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-40sWord Count: %-10d Page Count: %-10d",
+                name, wordCount, pageCount);
     }
 
     public String getName() {
@@ -33,5 +53,9 @@ public class Book {
 
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
+    }
+
+    public int getPageCount() {
+        return pageCount;
     }
 }

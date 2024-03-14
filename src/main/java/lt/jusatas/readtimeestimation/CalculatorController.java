@@ -1,11 +1,11 @@
 package lt.jusatas.readtimeestimation;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CalculatorController {
 
@@ -15,20 +15,37 @@ public class CalculatorController {
     @FXML TextField wordCount;
 
     @FXML Button timerButton;
+    @FXML Button addBookButton;
     @FXML Button calculateButton;
 
-    @FXML Label timerLabel;
     @FXML Label timerResultS;
     @FXML Label wordsRead;
     @FXML Label wordsPerMinute;
 
+    @FXML TableView<Book> bookTableView;
 
-
+    private ObservableList<Book> bookList;
     private boolean timerRunning = false;
     private String paragraphString;
 
-    TimerManager timerManager = ManagerFactory.createTimerManager();
-    ParagraphManager paragraphManager = ManagerFactory.createParagraphManger("paragraphs.txt");
+    private TimerManager timerManager = ManagerFactory.createTimerManager();
+    private ParagraphManager paragraphManager = ManagerFactory.createParagraphManger("paragraphs.txt");
+    private BookTableViewManager bookTableViewManager;
+
+    public void initialize() {
+        bookTableViewManager = new BookTableViewManager(bookTableView);;
+        bookList = FXCollections.observableArrayList();
+
+        Book book = new Book("The Bible (ESV)", 757439, true);
+        bookList.add(book);
+        book = new Book("Metai", 20872, true);
+        bookList.add(book);
+        book = new Book("The Lord of the Rings series", 550147, true);
+        bookList.add(book);
+
+        bookTableViewManager.setItems(bookList);
+
+    }
 
     @FXML
     void onTimerButtonClick(ActionEvent event) {
@@ -54,6 +71,35 @@ public class CalculatorController {
             timerButton.setText("Stop timer");
             timerResultS.setText("");
         }
+    }
+    @FXML
+    void onAddBookButtonClick(ActionEvent event) {
+        String name = bookName.getText();
+        String pageCountText = pageCount.getText();
+        String wordCountText = wordCount.getText();
+        Book newBook;
+
+        if (name.isEmpty() || (pageCountText.isEmpty() && wordCountText.isEmpty())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all the required fields");
+            alert.showAndWait();
+            return;
+
+        } else if (pageCountText.isEmpty()) {
+            newBook = new Book(name, Integer.parseInt(wordCountText), true);
+        } else if (wordCountText.isEmpty()) {
+            newBook = new Book(name, Integer.parseInt(pageCountText));
+        } else {
+            newBook = new Book(name, Integer.parseInt(wordCountText), Integer.parseInt(pageCountText));
+        }
+
+        bookList.add(newBook);
+
+        bookName.clear();
+        pageCount.clear();
+        wordCount.clear();
     }
 
     @FXML

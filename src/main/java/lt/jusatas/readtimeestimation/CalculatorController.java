@@ -5,16 +5,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class CalculatorController {
 
     @FXML TextArea paragraphTextArea;
+    @FXML TextField bookName;
+    @FXML TextField pageCount;
+    @FXML TextField wordCount;
+
+    @FXML Button timerButton;
+    @FXML Button calculateButton;
 
     @FXML Label timerLabel;
-    @FXML Button timerButton;
-
     @FXML Label timerResultS;
-
     @FXML Label wordsRead;
     @FXML Label wordsPerMinute;
 
@@ -26,14 +30,12 @@ public class CalculatorController {
     TimerManager timerManager = ManagerFactory.createTimerManager();
     ParagraphManager paragraphManager = ManagerFactory.createParagraphManger("paragraphs.txt");
 
-
-
     @FXML
     void onTimerButtonClick(ActionEvent event) {
         if (timerRunning) {
             timerManager.stopTimer();
             timerRunning = false;
-            timerButton.setText("Start");
+            timerButton.setText("Start timer");
 
             int wordCount = paragraphManager.countWords(paragraphString);
             long timeS = timerManager.getElapsedTimeMS() / 1000;
@@ -49,8 +51,13 @@ public class CalculatorController {
             paragraphString = paragraphManager.getRandomParagraph();
             paragraphTextArea.setText(paragraphString);
 
-            timerButton.setText("Stop");
+            timerButton.setText("Stop timer");
             timerResultS.setText("");
         }
+    }
+
+    @FXML
+    void onCalculateButtonClick(ActionEvent event) {
+
     }
 }

@@ -73,14 +73,6 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="14.0" layoutY="381.0" prefHeight="227.0" prefWidth="472.0">
-         <children>
-            <Label alignment="TOP_LEFT" prefHeight="201.0" prefWidth="498.0" text="Average reading speeds by age:&#10;1st Grade: 53–111 wpm&#10;2nd Grade: 89–149 wpm&#10;3rd Grade: 107–162 wpm&#10;4th Grade: 123–180 wpm&#10;5th Grade: 139–194 wpm&#10;6th-8th Grade: 150–204 wpm&#10;High School: 200–300 wpm&#10;College: 300–350 wpm&#10;Adults: Non-fiction: 250 wpm" wrapText="true">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="381.0" prefHeight="227.0" prefWidth="472.0" />
    </children>
 </AnchorPane>

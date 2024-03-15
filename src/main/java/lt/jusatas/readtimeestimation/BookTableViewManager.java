@@ -27,7 +27,7 @@ public class BookTableViewManager {
     }
 
     public void addReadingTimeColumn() {
-        TableColumn<Book, Integer> readingTimeColumn = new TableColumn<>("Reading Time (hours)");
+        TableColumn<Book, Integer> readingTimeColumn = new TableColumn<>("Reading hours");
         readingTimeColumn.setCellValueFactory(new PropertyValueFactory<>("readingTime"));
 
         tableView.getColumns().add(readingTimeColumn);

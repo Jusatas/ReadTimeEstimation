@@ -26,6 +26,13 @@ public class BookTableViewManager {
         tableView.getColumns().addAll(nameColumn, wordCountColumn, pageCountColumn);
     }
 
+    public void addReadingTimeColumn() {
+        TableColumn<Book, Integer> readingTimeColumn = new TableColumn<>("Reading Time (hours)");
+        readingTimeColumn.setCellValueFactory(new PropertyValueFactory<>("readingTime"));
+
+        tableView.getColumns().add(readingTimeColumn);
+    }
+
     public void setItems(ObservableList<Book> items) {
         System.out.println("Set items is being called");
         tableView.setItems(items);

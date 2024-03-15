@@ -129,6 +129,8 @@ public class CalculatorController {
 
         resultViewController.setData(readSpeed, bookList);
 
+        resultViewController.initialize();
+
         Stage resultView = new Stage();
         resultView.setScene(new Scene(root));
         resultView.show();

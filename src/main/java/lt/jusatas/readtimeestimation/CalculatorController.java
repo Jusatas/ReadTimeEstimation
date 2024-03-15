@@ -4,8 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CalculatorController {
 
@@ -27,6 +33,7 @@ public class CalculatorController {
     private ObservableList<Book> bookList;
     private boolean timerRunning = false;
     private String paragraphString;
+    private boolean timerClicked = false;
 
     private TimerManager timerManager = ManagerFactory.createTimerManager();
     private ParagraphManager paragraphManager = ManagerFactory.createParagraphManger("paragraphs.txt");
@@ -62,6 +69,7 @@ public class CalculatorController {
             }
             timerResultS.setText(String.valueOf(timeS));
             wordsRead.setText(String.valueOf(wordCount));
+            timerClicked = true;
         } else {
             timerManager.startTimer();
             timerRunning = true;
@@ -103,7 +111,26 @@ public class CalculatorController {
     }
 
     @FXML
-    void onCalculateButtonClick(ActionEvent event) {
+    void onCalculateButtonClick(ActionEvent event) throws IOException {
 
+        if (!timerClicked) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please read the text with the timer.");
+            alert.showAndWait();
+            return;
+        }
+        int readSpeed = Integer.parseInt(wordsPerMinute.getText());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("timer-calculator-result-view.fxml"));
+        Parent root = loader.load();
+        ResultViewController resultViewController = loader.getController();
+
+        resultViewController.setData(readSpeed, bookList);
+
+        Stage resultView = new Stage();
+        resultView.setScene(new Scene(root));
+        resultView.show();
     }
 }

@@ -1,4 +1,4 @@
-package lt.jusatas.readtimeestimation;
+package com.jusatas.readtimeestimation;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

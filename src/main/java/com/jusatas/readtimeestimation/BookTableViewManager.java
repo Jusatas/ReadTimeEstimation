@@ -1,4 +1,4 @@
-package lt.jusatas.readtimeestimation;
+package com.jusatas.readtimeestimation;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;

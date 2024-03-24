@@ -1,10 +1,7 @@
-package lt.jusatas.readtimeestimation;
-import javafx.collections.FXCollections;
+package com.jusatas.readtimeestimation;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
-
-import java.util.Iterator;
 
 public class ResultViewController {
 

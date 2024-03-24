@@ -1,4 +1,4 @@
-package lt.jusatas.readtimeestimation;
+package com.jusatas.readtimeestimation;
 
 public class TimerManager {
     private static TimerManager instance;
@@ -6,7 +6,7 @@ public class TimerManager {
     private long elapsedTime;
     private boolean running;
 
-    private TimerManager() {};
+    private TimerManager() {}
 
     public static TimerManager getInstance() {
         if (instance == null) {

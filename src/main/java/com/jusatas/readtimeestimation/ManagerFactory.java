@@ -1,4 +1,4 @@
-package lt.jusatas.readtimeestimation;
+package com.jusatas.readtimeestimation;
 
 public class ManagerFactory {
     public static TimerManager createTimerManager() {

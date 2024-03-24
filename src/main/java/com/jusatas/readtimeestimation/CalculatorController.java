@@ -1,4 +1,4 @@
-package lt.jusatas.readtimeestimation;
+package com.jusatas.readtimeestimation;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class CalculatorController {
     private BookTableViewManager bookTableViewManager;
 
     public void initialize() {
-        bookTableViewManager = new BookTableViewManager(bookTableView);;
+        bookTableViewManager = new BookTableViewManager(bookTableView);
         bookList = FXCollections.observableArrayList();
 
         Book book = new Book("The Bible (ESV)", 757439, true);

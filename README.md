@@ -9,7 +9,7 @@ RTE is a program that helps estimate how long it will take to read user-chosen b
 - **Two languages** are fully supported with the help of localization files for the UI and testing paragraphs.
 
 ## Demo
-![demo](https://github.com/Jusatas/ReadTimeEstimation/raw/main/RTEdemoCropped.gif)              
+![demo](https://github.com/Jusatas/ReadTimeEstimation/raw/main/RTEdemo2.gif)
 
 ## Downloading and Usage
 1. Make sure you have JRE installed.
